@@ -25,15 +25,15 @@ SET row_security = off;
 --
 INSERT INTO alumnos (id_alumno, nombre_alumno, documento_alumno, contacto_alumno) VALUES 
 (1,	'Juan',	'1111',	'0985347584'),
-(2,	Alberto	2222	0975147852)
-3	Jose	3333	0996854785,
-4	Joaquin	4444	0994578965
-5	Milagros	5555	0993147203
-6	Marcelo	6666	0974145785
-7	Matias	7777	0985258302
-8	Sofia	8888	0974587458
-9	Margaret	9999	0985632104
-10	Alejandro	1000	0974852074
+(2,	'Alberto',	'2222',	'0975147852'),
+(3,	'Jose',	'3333',	'0996854785'),
+4,	'Joaquin',	'4444',	'0994578965',
+5,	'Milagros',	'5555',	'0993147203',
+6,	'Marcelo',	'6666',	'0974145785',
+7,	'Matias',	'7777',	'0985258302',
+8	'Sofia'	'8888'	'0974587458'
+9	'Margaret'	'9999'	'0985632104'
+10	'Alejandro'	'1000'	'0974852074'
 \.
 
 
