@@ -179,7 +179,6 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
         label_carrera = new javax.swing.JLabel();
         label_semestre = new javax.swing.JLabel();
         comboBox_semestre = new javax.swing.JComboBox<>();
-        button_cancelar = new javax.swing.JButton();
         label_materias = new javax.swing.JLabel();
         label_materiasCursadas = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -229,13 +228,6 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
             }
         });
 
-        button_cancelar.setText("Cancelar");
-        button_cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_cancelarActionPerformed(evt);
-            }
-        });
-
         label_materias.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         label_materias.setText("Materias");
 
@@ -275,12 +267,6 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(label_materias)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label_materiasCursadas)
-                .addGap(195, 195, 195))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -299,17 +285,20 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(label_alumno)
                                 .addGap(183, 183, 183))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label_semestre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBox_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label_campoAlumno)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(label_materias)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(label_materiasCursadas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label_semestre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboBox_semestre, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(label_campoAlumno)))
                         .addGap(205, 205, 205))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(318, 318, 318)
-                .addComponent(button_cancelar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,9 +325,7 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(button_cancelar)
-                .addGap(40, 40, 40))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -351,11 +338,6 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
     private void comboBox_semestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_semestreActionPerformed
         actualizarTablas();
     }//GEN-LAST:event_comboBox_semestreActionPerformed
-
-    private void button_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cancelarActionPerformed
-        this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_button_cancelarActionPerformed
 
     private void menuItem_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_agregarActionPerformed
         int fila = table_materias.getSelectedRow();
@@ -420,7 +402,6 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_cancelar;
     private javax.swing.JComboBox<Carrera> comboBox_carrera;
     private javax.swing.JComboBox<String> comboBox_semestre;
     private javax.swing.JScrollPane jScrollPane1;
