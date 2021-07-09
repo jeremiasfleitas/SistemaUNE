@@ -228,7 +228,7 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
             }
         });
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
 
         label_alumno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_alumno.setText("Alumno:");
@@ -241,21 +241,18 @@ public class ABM_Alumnos_Materias extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(label_campoAlumno))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(label_alumno)))
+                    .addComponent(label_campoAlumno)
+                    .addComponent(label_alumno))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(label_alumno)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_campoAlumno)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
