@@ -18,7 +18,7 @@ public class Conexion {
     String db_name="db_institucion";
     String username="postgres";
     //String password="2008mini";
-    String password="jeremias12345";
+    String password="2008mini";
                
     public Connection conexion(){
         Connection connection = null;

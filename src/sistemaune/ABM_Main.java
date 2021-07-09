@@ -89,6 +89,11 @@ public class ABM_Main extends javax.swing.JFrame {
 
         asistencias_button.setText("Asistencias");
         asistencias_button.setToolTipText("");
+        asistencias_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asistencias_buttonActionPerformed(evt);
+            }
+        });
 
         inventario_button.setText("Inventario");
         inventario_button.setEnabled(false);
@@ -166,6 +171,11 @@ public class ABM_Main extends javax.swing.JFrame {
         ABM_Carreras carreras = new ABM_Carreras();
         carreras.setVisible(true);
     }//GEN-LAST:event_carreras_buttonActionPerformed
+
+    private void asistencias_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asistencias_buttonActionPerformed
+        AMB_asistencias asistencia = new AMB_asistencias();
+        asistencia.setVisible(true);
+    }//GEN-LAST:event_asistencias_buttonActionPerformed
 
     /**
      * @param args the command line arguments
