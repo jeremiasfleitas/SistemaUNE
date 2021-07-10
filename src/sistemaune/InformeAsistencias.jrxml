@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="43b01943-1f55-429c-b600-50b24327aa85">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Carrera" class="java.lang.String"/>
+	<parameter name="id_carrera" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaInicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT asis.fecha_asistencia, asis.presencia_asistencia, al.nombre_alumno, ca.nombre_carrera, ma.nombre_materia
+FROM asistencias asis, alumnos_materias am, alumnos al, materias ma, carreras ca where asis.id_alumno_materia = am.id_alumno_materia
+and am.id_alumno = al.id_alumno and ma.id_materia = am.id_materia and ma.id_carrera = ca.id_carrera and ca.id_carrera = $P{id_carrera} and asis.fecha_asistencia>=$P{FechaInicio} and asis.fecha_asistencia <= $P{FechaFin} order by ma.nombre_materia, al.nombre_alumno]]>
+	</queryString>
+	<field name="fecha_asistencia" class="java.sql.Date"/>
+	<field name="presencia_asistencia" class="java.lang.String"/>
+	<field name="nombre_alumno" class="java.lang.String"/>
+	<field name="nombre_carrera" class="java.lang.String"/>
+	<field name="nombre_materia" class="java.lang.String"/>
+	<group name="nombre_carrera">
+		<groupExpression><![CDATA[$F{nombre_carrera}]]></groupExpression>
+	</group>
+	<group name="nombre_materia">
+		<groupExpression><![CDATA[$F{nombre_materia}]]></groupExpression>
+	</group>
+	<group name="MATERIA">
+		<groupExpression><![CDATA[$F{nombre_materia}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="20" uuid="4209db4a-a819-4567-a089-33d74739a03e"/>
+					<textFieldExpression><![CDATA[$F{nombre_materia}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="10"/>
+		</groupFooter>
+	</group>
+	<group name="ALUMNO">
+		<groupExpression><![CDATA[$F{nombre_alumno}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement x="53" y="0" width="100" height="20" uuid="4b104cb9-e64d-4354-82f9-3a09edbd4726"/>
+					<textFieldExpression><![CDATA[$F{nombre_alumno}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="0" width="186" height="25" uuid="2d829f63-92a8-4ab2-911f-588b2d740d2b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Black" size="16"/>
+				</textElement>
+				<text><![CDATA[Reporte Asistencia]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="113" y="0" width="100" height="20" uuid="50f632ef-8cef-415d-8ff6-639f0b102032"/>
+				<textFieldExpression><![CDATA[$P{Carrera}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="0" width="71" height="20" uuid="32faa6c2-8073-46bc-9efe-1bdfcb101e83"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Carrera:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="332" y="0" width="100" height="20" uuid="054f4d14-9bca-4a0a-a99c-b4f6d0e9d38f"/>
+				<textFieldExpression><![CDATA[$P{FechaInicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="0" width="81" height="20" uuid="6ddcce3d-c0fb-4619-9754-5dd9585f5704"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Rango de fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="0" width="100" height="20" uuid="3c4f5a0a-bee7-48fb-b1a7-28ff2902df11"/>
+				<textFieldExpression><![CDATA[$P{FechaFin}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="555" height="4" uuid="f7157162-4f71-481f-b89b-f02423cf1c53"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<elementGroup/>
+			<elementGroup/>
+			<staticText>
+				<reportElement x="113" y="2" width="100" height="20" uuid="1e370195-d1f0-4f58-ad5d-14866ce2dc8f"/>
+				<text><![CDATA[nombre_alumno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="100" height="20" uuid="bea10a91-1bae-45ce-9f95-f844cf6673ff"/>
+				<text><![CDATA[fecha_asistencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="2" width="100" height="20" uuid="4c93b3e8-3e78-466a-b5e7-96e70b447e54"/>
+				<text><![CDATA[presencia_asistencia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<elementGroup>
+				<elementGroup>
+					<elementGroup/>
+				</elementGroup>
+			</elementGroup>
+			<textField>
+				<reportElement x="332" y="0" width="100" height="20" uuid="810f2632-93db-4639-b105-99b31003ffc1"/>
+				<textFieldExpression><![CDATA[$F{presencia_asistencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="0" width="100" height="20" uuid="a433b80f-e480-44d2-b44c-0f66d59fae56"/>
+				<textFieldExpression><![CDATA[$F{fecha_asistencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="397" y="26" width="80" height="20" uuid="5a3c546e-1692-4f78-9c98-8f7f51a8dda8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="477" y="26" width="40" height="20" uuid="5d7f6663-7a8b-441c-aab3-b9c378363129"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

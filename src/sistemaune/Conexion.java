@@ -13,12 +13,12 @@ import java.sql.DriverManager;
  * @author Fernando
  */
 public class Conexion {
-    String host="192.168.0.30";
+    String host="localhost";
     String port="5432";
-    String db_name="db_institucion";
+    String db_name="db_une";
     String username="postgres";
     //String password="2008mini";
-    String password="2008mini";
+    String password="jeremias12345";
                
     public Connection conexion(){
         Connection connection = null;

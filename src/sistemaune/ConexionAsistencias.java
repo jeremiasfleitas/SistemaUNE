@@ -79,13 +79,12 @@ public class ConexionAsistencias {
         
        try {
                 consulta = cc.conexion().createStatement();
-                resultado = consulta.executeQuery("SELECT * FROM materias");
+                resultado = consulta.executeQuery("SELECT id_materia, nombre_materia, nombre_carrera FROM materias, carreras WHERE materias.id_carrera= carreras.id_carrera");
                       
               while(resultado.next()){
                   mMaterias = new Materia(); 
                   mMaterias.setId_materia(resultado.getInt(1));
-                  mMaterias.setNombre_materia(resultado.getString(2));
-                  mMaterias.setDia(9);
+                  mMaterias.setNombre_materia(resultado.getString(2)+" "+ resultado.getString(3));
                   mListaMaterias.add(mMaterias);   
                 }             
             } catch (SQLException e) {
