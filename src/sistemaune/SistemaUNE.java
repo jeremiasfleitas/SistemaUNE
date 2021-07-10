@@ -15,7 +15,8 @@ public class SistemaUNE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ABM_Main main = new ABM_Main();
+        main.setVisible(true);
     }
     
 }
