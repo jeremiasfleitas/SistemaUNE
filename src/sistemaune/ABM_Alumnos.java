@@ -204,10 +204,10 @@ public class ABM_Alumnos extends javax.swing.JFrame {
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guardar_button)
-                .addGap(18, 18, 18)
-                .addComponent(editar_button)
-                .addGap(57, 57, 57))
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardar_button)
+                    .addComponent(editar_button))
+                .addGap(76, 76, 76))
         );
 
         panel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -284,12 +284,14 @@ public class ABM_Alumnos extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(rootPane, "Debes seleccionar el alumno en la tabla antes de editar, utiliza clic izquierdo sobre el alumno a editar");
         }else{
             try{
+                System.out.println(idEditar);
                 ca.actualizar(idEditar, nombre_textField.getText(), cedula_textField.getText(), contacto_textField.getText());
                 mostrarDatos("","");
                 idEditar = null;
                 nombre_textField.setText("");
                 cedula_textField.setText("");
                 editar_button.setVisible(false);
+                guardar_button.setVisible(true);
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
@@ -326,6 +328,7 @@ public class ABM_Alumnos extends javax.swing.JFrame {
         idEditar = Integer.parseInt(tablaAlumnos.getModel().getValueAt(filaSeleccionada, 4).toString());
         editar_button.setVisible(true);
         carrera_button.setVisible(true);
+        guardar_button.setVisible(false);
     }//GEN-LAST:event_editar_popupActionPerformed
 
     private void borrar_popupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrar_popupActionPerformed
@@ -378,6 +381,8 @@ public class ABM_Alumnos extends javax.swing.JFrame {
         }catch(SQLException ex){
             System.out.println("Algo falló"+ex);
         }
+        
+        editar_button.setVisible(false);
     }
         
     public static void main(String args[]) {

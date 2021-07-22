@@ -15,10 +15,10 @@ import java.sql.DriverManager;
 public class Conexion {
     String host="localhost";
     String port="5432";
-    String db_name="db_une";
+    String db_name="db_institucion";
     String username="postgres";
-    //String password="2008mini";
-    String password="jeremias12345";
+    String password="2008mini";
+    //String password="jeremias12345";
                
     public Connection conexion(){
         Connection connection = null;

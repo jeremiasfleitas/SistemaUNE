@@ -54,11 +54,11 @@ public class ConexionAlumnos {
     public void actualizar(Integer id, String nombre, String cedula, String contacto){
         try {
             PreparedStatement pst;
-            pst = cc.conexion().prepareStatement("UPDATE alumnos SET nombre_alumno='?', documento_alumno='?', contacto_alumno='?' WHERE id_alumno='?'");
-            pst.setString(1, nombre);
+            pst = cc.conexion().prepareStatement("UPDATE alumnos SET nombre_alumno='"+nombre+"', documento_alumno='"+cedula+"', contacto_alumno='"+contacto+"' WHERE id_alumno='"+id+"'");
+            /**pst.setString(1, nombre);
             pst.setString(2, cedula);
             pst.setString(3, contacto);
-            pst.setInt(4, id);
+            pst.setInt(4, id);**/
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConexionAlumnos.class.getName()).log(Level.SEVERE, null, ex);
