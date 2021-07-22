@@ -322,7 +322,7 @@ public class ABM_Carreras extends javax.swing.JFrame {
             while(rs.next()){
                 datos[0] = String.valueOf(i);
                 datos[1] = rs.getString(2).trim();
-                datos[2] = rs.getString(3).trim();
+                datos[2] = rs.getString(3);
                 datos[3] = rs.getString(1).trim(); 
                 modelo.addRow(datos);
                 i++;
