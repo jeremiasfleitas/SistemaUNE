@@ -362,7 +362,7 @@ public class ABM_Alumnos extends javax.swing.JFrame {
        
         String[] datos = new String[5];
         try{
-            ResultSet rs = ca.buscar();
+            ResultSet rs = ca.buscar(nombre, cedula); 
             int i = 1;
             while(rs.next()){
                 datos[0] = String.valueOf(i);

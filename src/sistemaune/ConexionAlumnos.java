@@ -39,7 +39,7 @@ public class ConexionAlumnos {
         }
     }
     
-    public ResultSet buscar(){
+    /*public ResultSet buscar(){
         String sql="";
             sql = "SELECT * FROM alumnos";
         try {
@@ -50,7 +50,7 @@ public class ConexionAlumnos {
             Logger.getLogger(ConexionAlumnos.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }
+    }*/
     
     
     public void guardar(String nombre, String cedula, String contacto){
