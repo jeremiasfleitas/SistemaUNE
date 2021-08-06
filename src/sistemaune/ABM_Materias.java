@@ -51,8 +51,8 @@ public class ABM_Materias extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaMaterias = new javax.swing.JTable();
         panel2 = new javax.swing.JPanel();
-        editar_button = new javax.swing.JButton();
         guardar_button = new javax.swing.JButton();
+        editar_button = new javax.swing.JButton();
         panel3 = new javax.swing.JPanel();
         buscar_button = new javax.swing.JButton();
         busqueda_textField = new javax.swing.JTextField();
@@ -106,7 +106,7 @@ public class ABM_Materias extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(anho_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(153, 153, 153)))
-                .addGap(98, 98, 98))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,6 +163,14 @@ public class ABM_Materias extends javax.swing.JFrame {
 
         panel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        guardar_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        guardar_button.setText("Guardar");
+        guardar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_buttonActionPerformed(evt);
+            }
+        });
+
         editar_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         editar_button.setText("Editar");
         editar_button.setToolTipText("");
@@ -172,33 +180,25 @@ public class ABM_Materias extends javax.swing.JFrame {
             }
         });
 
-        guardar_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        guardar_button.setText("Guardar");
-        guardar_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardar_buttonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(guardar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(editar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(guardar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editar_button)
-                .addGap(43, 43, 43)
-                .addComponent(guardar_button)
-                .addGap(52, 52, 52))
+                .addGap(88, 88, 88)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardar_button)
+                    .addComponent(editar_button))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -281,6 +281,7 @@ public class ABM_Materias extends javax.swing.JFrame {
                 nombre_textField.setText("");
                 anho_textField.setText("");
                 carreras_comboBox.setSelectedIndex(0);
+                guardar_button.setVisible(true);
             }catch(NumberFormatException n){
                 JOptionPane.showMessageDialog(rootPane, "El año debe ser de tipo numérico y no debe contener espacios!!!");
             }catch(Exception e){
@@ -326,6 +327,8 @@ public class ABM_Materias extends javax.swing.JFrame {
             }
         }
         idEditar = Integer.parseInt(tablaMaterias.getModel().getValueAt(filaSeleccionada, 4).toString());
+        editar_button.setVisible(true);
+        guardar_button.setVisible(false);
     }//GEN-LAST:event_editar_popupActionPerformed
 
     private void borrar_popupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrar_popupActionPerformed
@@ -375,6 +378,8 @@ public class ABM_Materias extends javax.swing.JFrame {
         }catch(SQLException ex){
             System.out.println("Algo falló");
         }
+        
+        editar_button.setVisible(false);
     }
         
     public void llenarCBCarreras(){

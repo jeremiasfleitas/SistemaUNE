@@ -78,12 +78,6 @@ public class ABM_Carreras extends javax.swing.JFrame {
         detalles_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         detalles_label.setText("Detalles:");
 
-        detalles_textField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                detalles_textFieldActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -182,10 +176,10 @@ public class ABM_Carreras extends javax.swing.JFrame {
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editar_button)
-                .addGap(43, 43, 43)
-                .addComponent(guardar_button)
-                .addGap(52, 52, 52))
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardar_button)
+                    .addComponent(editar_button))
+                .addGap(101, 101, 101))
         );
 
         panel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -261,6 +255,7 @@ public class ABM_Carreras extends javax.swing.JFrame {
                 idEditar = null;
                 nombre_textField.setText("");
                 detalles_textField.setText("");
+                guardar_button.setVisible(true);
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
@@ -289,6 +284,8 @@ public class ABM_Carreras extends javax.swing.JFrame {
         detalles_textField.setText(tablaMaterias.getValueAt(filaSeleccionada, 2).toString());
      
         idEditar = Integer.parseInt(tablaMaterias.getModel().getValueAt(filaSeleccionada, 3).toString());
+        editar_button.setVisible(true);
+        guardar_button.setVisible(false);
     }//GEN-LAST:event_editar_popupActionPerformed
 
     private void borrar_popupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrar_popupActionPerformed
@@ -298,10 +295,6 @@ public class ABM_Carreras extends javax.swing.JFrame {
         mostrarDatos("");
         idEditar = null;
     }//GEN-LAST:event_borrar_popupActionPerformed
-
-    private void detalles_textFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalles_textFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_detalles_textFieldActionPerformed
 
     // Own functions ***********************************************************
     void mostrarDatos(String nombre){
@@ -334,6 +327,8 @@ public class ABM_Carreras extends javax.swing.JFrame {
         }catch(SQLException ex){
             System.out.println("Algo falló");
         }
+        
+        editar_button.setVisible(false);
     }
         
 
